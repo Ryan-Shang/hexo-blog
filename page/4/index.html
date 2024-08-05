@@ -315,6 +315,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.ryanshang.com/2020/04/05/%E5%BD%A9%E8%89%B2%E5%A4%B4%E5%83%8F%E8%BD%AC%E7%81%B0%E8%89%B2%E5%A4%B4%E5%83%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Ryan.jpg">
+      <meta itemprop="name" content="Ryan Shang">
+      <meta itemprop="description" content="前端渣渣一枚，热爱科技，热爱搞事请">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ryan Shang">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/05/%E5%BD%A9%E8%89%B2%E5%A4%B4%E5%83%8F%E8%BD%AC%E7%81%B0%E8%89%B2%E5%A4%B4%E5%83%8F/" class="post-title-link" itemprop="url">彩色头像转灰色头像</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-05 00:00:00" itemprop="dateCreated datePublished" datetime="2020-04-05T00:00:00+08:00">2020-04-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p><img src="/2020/04/05/%E5%BD%A9%E8%89%B2%E5%A4%B4%E5%83%8F%E8%BD%AC%E7%81%B0%E8%89%B2%E5%A4%B4%E5%83%8F/1.png" alt="01"><br><a target="_blank" rel="noopener" href="https://demo.ryanshang.com/filter/">demo</a></p>
+<p>最近清明节，网上有许多人会把自己的彩色头像换成灰色头像，也有一些工具可以帮忙做图像转换。这两天刚好空闲，想试试用网页来实现把彩色照片转成灰色头像</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li><p>使用<code>input</code>的<code>file</code>类型上传图片</p>
+</li>
+<li><p>获取图片后使用<code>FileReader</code>的<code>readAsDataURL</code>Api把文件对象转换为base64格式，展示在输出照片位置</p>
+</li>
+<li><p>输出照片加载完成后，创建一个<code>canvas</code>对象，然后把<code>context</code>的<code>filter</code>属性设置为<code>grayscale(0.95)</code>，使图片变灰</p>
+</li>
+<li><p>把<code>canvas</code>产生出来的新的图片通过<code>canvas.toDataURL</code>Api转换为base64格式</p>
+</li>
+<li><p>用最终的base64格式图片替换输出照片位置的图片</p>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/05/%E5%BD%A9%E8%89%B2%E5%A4%B4%E5%83%8F%E8%BD%AC%E7%81%B0%E8%89%B2%E5%A4%B4%E5%83%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.ryanshang.com/2020/01/17/Node%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91%E4%B8%AD%E4%BD%BF%E7%94%A8TypeOrm%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -500,84 +587,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.ryanshang.com/2019/12/25/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E4%B8%AA%E4%BA%BAgit%E4%BA%8B%E6%95%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/Ryan.jpg">
-      <meta itemprop="name" content="Ryan Shang">
-      <meta itemprop="description" content="前端渣渣一枚，热爱科技，热爱搞事请">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ryan Shang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/25/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E4%B8%AA%E4%BA%BAgit%E4%BA%8B%E6%95%85/" class="post-title-link" itemprop="url">记录一次个人git事故</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-25 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-25T00:00:00+08:00">2019-12-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今天圣诞节，在工作时侯，出现了一个有意思的意外情况，这里做下记录。</p>
-<h4 id="事情经过"><a href="#事情经过" class="headerlink" title="事情经过"></a>事情经过</h4><p>一个比较大的需求，每天都保持了一次个人开发分支提交。今天发现有4次提交没有合并到主开发分支，于是动手合并，合并记如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">10262  gco dev</span><br><span class="line">10263  git pull</span><br><span class="line">10264  git <span class="built_in">log</span></span><br><span class="line">10265  gco feature/my-dev-branch</span><br><span class="line">10266  git rebase dev</span><br><span class="line">10267  git rebase -i HEAD~4</span><br><span class="line">10268  git <span class="built_in">log</span></span><br><span class="line">10269  git rebase -i HEAD~1</span><br><span class="line">10270  git <span class="built_in">log</span></span><br><span class="line">10271  git push -f</span><br><span class="line">10272  gco dev</span><br><span class="line">10273  git merge feature/my-dev-branch</span><br><span class="line">10274  git push</span><br><span class="line">10275  git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-
-<p>我们部门合并到主开发分支前，要求合并下commit记录，按照以往的流程是没有问题的。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/25/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E4%B8%AA%E4%BA%BAgit%E4%BA%8B%E6%95%85/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -649,7 +658,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
