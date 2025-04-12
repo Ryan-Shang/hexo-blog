@@ -28,7 +28,7 @@
 <meta property="og:description" content="一、背景父母经常有些电脑上的功能不会操作，需要我远程协助，以前使用的是Teamviewer，这几年限制越来越多，账号登陆都成了问题。之前想使用自建Tailscale + Derper中继节点 + 微软RDP远程桌面的方式来实现远程操作，但是使用RDP远程登陆，会导致被控端锁屏，不是一个适合的协助父母远程操作的方式，所以尝试自建Rustdesk来解决。 二、简介1. RustdeskRustdesk">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-15T13:12:07.745Z">
+<meta property="article:modified_time" content="2025-04-12T02:34:32.857Z">
 <meta property="article:author" content="Ryan Shang">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="Rustdesk">
@@ -215,7 +215,7 @@
 <p>在云服务器厂商面板或者防火墙开启21115&#x2F;tcp、21116&#x2F;tcp、21117&#x2F;tcp和21116&#x2F;udp端口。</p>
 <h4 id="2-Docker"><a href="#2-Docker" class="headerlink" title="2. Docker"></a>2. Docker</h4><p>使用Docker搭建会很方便很多。</p>
 <h3 id="四、过程"><a href="#四、过程" class="headerlink" title="四、过程"></a>四、过程</h3><h4 id="1-创建文件夹"><a href="#1-创建文件夹" class="headerlink" title="1. 创建文件夹"></a>1. 创建文件夹</h4><p>先创建<code>/home/ryan/Docker/rustdesk</code>文件夹，用于储存rustdesk相关的数据。</p>
-<h4 id="2-搭建"><a href="#2-搭建" class="headerlink" title="2. 搭建"></a>2. 搭建</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --name hbbs -p 21115:21115 -p 21116:21116 -p 21116:21116/udp -v /home/ryan/Docker/rustdesk:/root -td rustdesk/rustdesk-server:1.1.14 hbbs</span><br><span class="line">docker run --name hbbr -p 21117:21117 -v /home/ryan/Docker/rustdesk:/root -td rustdesk/rustdesk-server:1.1.14 hbbr</span><br></pre></td></tr></table></figure>
+<h4 id="2-搭建"><a href="#2-搭建" class="headerlink" title="2. 搭建"></a>2. 搭建</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --restart unless-stopped --name hbbs -p 21115:21115 -p 21116:21116 -p 21116:21116/udp -v /home/ryan/Docker/rustdesk:/root -td rustdesk/rustdesk-server:1.1.14 hbbs</span><br><span class="line">docker run --restart unless-stopped --name hbbr -p 21117:21117 -v /home/ryan/Docker/rustdesk:/root -td rustdesk/rustdesk-server:1.1.14 hbbr</span><br></pre></td></tr></table></figure>
 
 <p>其中，hbbs是rustdesk的认证服务，hbbr是rustdesk的中继服务。</p>
 <h4 id="3-客户端使用"><a href="#3-客户端使用" class="headerlink" title="3. 客户端使用"></a>3. 客户端使用</h4><p>获取公钥，</p>
