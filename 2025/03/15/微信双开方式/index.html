@@ -28,7 +28,7 @@
 <meta property="og:description" content="一、背景简单记录下Windows和Mac下微信双开的方式。 二、方案1. Windows创建一个bat脚本wechat.bat：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-21T08:29:50.553Z">
+<meta property="article:modified_time" content="2025-05-14T00:35:30.643Z">
 <meta property="article:author" content="Ryan Shang">
 <meta property="article:tag" content="微信">
 <meta name="twitter:card" content="summary">
@@ -210,10 +210,19 @@
       
         <h3 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h3><p>简单记录下Windows和Mac下微信双开的方式。</p>
 <h3 id="二、方案"><a href="#二、方案" class="headerlink" title="二、方案"></a>二、方案</h3><h4 id="1-Windows"><a href="#1-Windows" class="headerlink" title="1. Windows"></a>1. Windows</h4><p>创建一个bat脚本<code>wechat.bat</code>：</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">start</span> &quot;&quot; &quot;C:\Program Files (x86)\Tencent\WeChat\WeChat.exe&quot;</span><br><span class="line"><span class="built_in">start</span> &quot;&quot; &quot;C:\Program Files (x86)\Tencent\WeChat\WeChat.exe&quot;</span><br><span class="line"><span class="keyword">exit</span></span><br></pre></td></tr></table></figure>
+<h5 id="V4-0及以上："><a href="#V4-0及以上：" class="headerlink" title="V4.0及以上："></a>V4.0及以上：</h5><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">start</span> &quot;&quot; &quot;C:\Program Files\Tencent\Weixin\Weixin.exe&quot;</span><br><span class="line"><span class="built_in">start</span> &quot;&quot; &quot;C:\Program Files\Tencent\Weixin\Weixin.exe&quot;</span><br><span class="line"><span class="keyword">exit</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="V4-0以下："><a href="#V4-0以下：" class="headerlink" title="V4.0以下："></a>V4.0以下：</h5><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">start</span> &quot;&quot; &quot;C:\Program Files (x86)\Tencent\WeChat\WeChat.exe&quot;</span><br><span class="line"><span class="built_in">start</span> &quot;&quot; &quot;C:\Program Files (x86)\Tencent\WeChat\WeChat.exe&quot;</span><br><span class="line"><span class="keyword">exit</span></span><br></pre></td></tr></table></figure>
 
 <p>鼠标双击这个文件，就会弹出两个微信的登录窗口。</p>
-<h4 id="2-Mac"><a href="#2-Mac" class="headerlink" title="2. Mac"></a>2. Mac</h4><p>创建一个bash脚本<code>wechat.sh</code>：</p>
+<h4 id="2-Mac"><a href="#2-Mac" class="headerlink" title="2. Mac"></a>2. Mac</h4><h5 id="V4-0及以上：-1"><a href="#V4-0及以上：-1" class="headerlink" title="V4.0及以上："></a>V4.0及以上：</h5><p>新版微信官方暂时无法同时启动两个，需要安装旧版本，然后安装时选择共存，在<code>访达</code>——<code>应用程序</code>中给旧版命名为<code>微信-V3</code>，注意要和脚本中对应</p>
+<p>创建一个bash脚本<code>wechat.sh</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">nohup</span> /Applications/微信-V3.app/Contents/MacOS/WeChat &gt; /dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<p>正常打开一个新版微信后，在终端执行脚本即可新打开一个旧版微信：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash wechat.sh</span><br></pre></td></tr></table></figure>
+
+<h5 id="V4-0以下：-1"><a href="#V4-0以下：-1" class="headerlink" title="V4.0以下："></a>V4.0以下：</h5><p>创建一个bash脚本<code>wechat.sh</code>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">nohup</span> /Applications/WeChat.app/Contents/MacOS/WeChat &gt; /dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
 <p>正常打开一个微信后，在终端执行：</p>
@@ -303,7 +312,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">一、背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">二、方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Windows"><span class="nav-number">2.1.</span> <span class="nav-text">1. Windows</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Mac"><span class="nav-number">2.2.</span> <span class="nav-text">2. Mac</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">一、背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">二、方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Windows"><span class="nav-number">2.1.</span> <span class="nav-text">1. Windows</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#V4-0%E5%8F%8A%E4%BB%A5%E4%B8%8A%EF%BC%9A"><span class="nav-number">2.1.1.</span> <span class="nav-text">V4.0及以上：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#V4-0%E4%BB%A5%E4%B8%8B%EF%BC%9A"><span class="nav-number">2.1.2.</span> <span class="nav-text">V4.0以下：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Mac"><span class="nav-number">2.2.</span> <span class="nav-text">2. Mac</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#V4-0%E5%8F%8A%E4%BB%A5%E4%B8%8A%EF%BC%9A-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">V4.0及以上：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#V4-0%E4%BB%A5%E4%B8%8B%EF%BC%9A-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">V4.0以下：</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
